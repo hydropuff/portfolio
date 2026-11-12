@@ -194,3 +194,47 @@ figure.mask{overflow:hidden}figure.mask img{width:100%;height:100%;object-fit:co
 .lp-steps li{border-top:2px solid #2B3F8F;padding-top:1rem}.lp-steps b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#2B3F8F;color:#F7E9D7;font-weight:500;margin-bottom:.8rem}
 .lp-steps h5{font-family:var(--serif);font-weight:500;font-size:1.2em;line-height:1.15;margin-bottom:.4rem;color:#2B3F8F}.lp-steps p{font-size:.9em;line-height:1.5}
 @media(max-width:900px){.lp-body,.lp-draw{grid-template-columns:1fr}.lp-steps{grid-template-columns:repeat(2,1fr);row-gap:2rem}.lp-hero{height:92vw}.lp-arch{width:62%}.lp-hero .lp-photo{left:24%;width:40%}.lp-hero .lp-proto{width:46%;bottom:2%}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Library hero fix ===== */
+.lp-title{font-size:clamp(40px,8.6vw,150px);letter-spacing:-.02em;line-height:.95}
+.lp-title .w{margin-right:.16em}
+.lp-hero{height:auto;margin-top:clamp(30px,4vw,70px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,80px);align-items:end}
+.lp-arch-frame{background:#3452A8;border-radius:999px 999px 0 0;padding:clamp(14px,2vw,30px) clamp(14px,2vw,30px) 0;will-change:transform}
+.lp-arch-img{display:block;border-radius:999px 999px 0 0;overflow:hidden;box-shadow:0 0 0 clamp(8px,1.2vw,18px) #6580D4;aspect-ratio:492/615}
+.lp-arch-img img{width:100%;height:100%;object-fit:cover}
+.lp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,20px);align-self:center}
+.lp-grid figure:nth-child(even){transform:translateY(8%)}
+@media(max-width:900px){.lp-hero{height:auto;grid-template-columns:1fr}.lp-arch-frame{max-width:420px;margin:0 auto}.lp-grid figure:nth-child(even){transform:none}}
+
+
+
+
+
+
+
+
+
+/* ===== Library: warm colours (replaces the blue) ===== */
+.lib-poster{background:linear-gradient(180deg,#F5F0E8 0%,#EEDFCD 35%,#F3E8D9 100%)}
+.lp-kicker,.lp-tag{color:#79604F}
+.lp-title{color:#5A3A2C}
+.lp-arch-frame{background:#A9674C}
+.lp-arch-img{box-shadow:0 0 0 clamp(8px,1.2vw,18px) #D9B9A0}
+.lp-body h4,.lp-spec h4{color:#79604F}
+.lp-spec li{border-bottom-color:rgba(90,58,44,.25)}
+.lp-spec li b{color:#5A3A2C}
+.lp-steps li{border-top-color:#5A3A2C}
+.lp-steps b{background:#5A3A2C;color:#F5F0E8}
+.lp-steps h5{color:#5A3A2C}

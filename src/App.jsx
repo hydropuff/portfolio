@@ -357,10 +357,23 @@ function Library() {
         <p className="lp-tag">a bookshelf that rocks</p>
       </div>
 
-      <div className="lp-hero l-hero">
+      {/* <div className="lp-hero l-hero">
         <div className="lp-arch" aria-hidden />
         <Img src="library/hero" alt="The Swaying Library in an interior, a man walking past" className="l-main lp-photo" />
         <Img src="library/prototype" alt="Final prototype photographed on grass, painted blue" className="lp-proto lp-round" />
+      </div> */}
+
+
+        <div className="lp-hero l-hero">
+        <figure className="lp-arch-frame" data-cursor>
+          <span className="lp-arch-img"><img src={A('library/hero')} alt="The Swaying Library in an interior, a man walking past" /></span>
+        </figure>
+        <div className="lp-grid">
+          <Img src="library/p1" alt="Prototype on grass, front angle" className="lp-round" ratio="1/1" />
+          <Img src="library/p2" alt="Prototype, close view of the shelf" className="lp-round" ratio="1/1" />
+          <Img src="library/p3" alt="Prototype on grass, three-quarter view" className="lp-round" ratio="1/1" />
+          <Img src="library/p4" alt="Prototype on grass, side view with books" className="lp-round" ratio="1/1" />
+        </div>
       </div>
 
       <div className="lp-body">
@@ -503,7 +516,8 @@ export default function App() {
       gsap.utils.toArray('.matrix li, .tools li').forEach((el) => gsap.from(el.querySelector('i'), { scaleX: 0, transformOrigin: 'left', duration: 1.3, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' } }))
       gsap.utils.toArray('.timeline li').forEach((el) => gsap.from(el, { opacity: 0, x: -24, duration: 0.9, scrollTrigger: { trigger: el, start: 'top 88%' } }))
       gsap.utils.toArray('.stack').forEach((el, i) => gsap.from(el, { y: 120, rotate: i ? 5 : -4, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' } }))
-      gsap.to('.l-main img', { rotate: 3, transformOrigin: '50% 100%', ease: 'none', scrollTrigger: { trigger: '.l-hero', scrub: 1, start: 'top 80%', end: 'bottom 20%' } })
+      // gsap.to('.l-main img', { rotate: 3, transformOrigin: '50% 100%', ease: 'none', scrollTrigger: { trigger: '.l-hero', scrub: 1, start: 'top 80%', end: 'bottom 20%' } })
+      gsap.fromTo('.lp-arch-frame', { rotate: -2.5 }, { rotate: 2.5, transformOrigin: '50% 100%', ease: 'none', scrollTrigger: { trigger: '.l-hero', scrub: 1, start: 'top 85%', end: 'bottom 15%' } })
       gsap.utils.toArray('.b-collage img').forEach((el, i) => gsap.from(el, { y: 160, rotate: (i % 2 ? 1 : -1) * 8, opacity: 0, duration: 1.2, ease: 'back.out(1.4)', scrollTrigger: { trigger: '.b-collage', start: 'top 80%' }, delay: i * 0.12 }))
       // section background shifts: warm ivory -> beige -> deeper brown while in the kitchen
       ScrollTrigger.create({ trigger: '#kitchen', start: 'top 60%', end: 'bottom 40%', toggleClass: { targets: 'body', className: 'tone-k' } })
