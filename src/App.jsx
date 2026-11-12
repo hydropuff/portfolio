@@ -308,7 +308,6 @@ function Office() {
         <Words as="h3" className="h3" text="Rendered sections" />
         <p className="lead narrow">Three sections show meeting rooms, workstations, a breakout area with arched seating and the stepped collaboration zone.</p>
         <figure className="wipe" data-cursor><img src={A('office/sections')} alt="Rendered sections of the office" loading="lazy" /></figure>
-        <Img src="office/hierarchy" alt="Marketing team hierarchy" className="hier" />
       </div>
     </section>
   )
@@ -368,12 +367,14 @@ function Library() {
         <figure className="lp-arch-frame" data-cursor>
           <span className="lp-arch-img"><img src={A('library/hero')} alt="The Swaying Library in an interior, a man walking past" /></span>
         </figure>
-        <div className="lp-grid">
+        {/* <div className="lp-grid">
           <Img src="library/p1" alt="Prototype on grass, front angle" className="lp-round" ratio="1/1" />
           <Img src="library/p2" alt="Prototype, close view of the shelf" className="lp-round" ratio="1/1" />
           <Img src="library/p3" alt="Prototype on grass, three-quarter view" className="lp-round" ratio="1/1" />
           <Img src="library/p4" alt="Prototype on grass, side view with books" className="lp-round" ratio="1/1" />
-        </div>
+        </div> */}
+
+        <Img src="library/collage" alt="Four views of the Swaying Library prototype on grass" className="lp-collage" ratio="1/1" />
       </div>
 
       <div className="lp-body">
