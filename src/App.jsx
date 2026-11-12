@@ -190,19 +190,52 @@ function Kitchen() {
 
 
 /* ---------------- Explore heading ---------------- */
-const projectIndex = [['kitchen', 'Mocha Musings', 'Kitchen design'], ['living', 'Living Room', 'Residential interior'], ['office', 'Paul and Mike', 'Workspace design'], ['library', 'The Swaying Library', 'Furniture design'], ['branding', 'More Projects', 'Identity design']]
+// const projectIndex = [['kitchen', 'Mocha Musings', 'Kitchen design'], ['living', 'Living Room', 'Residential interior'], ['office', 'Paul and Mike', 'Workspace design'], ['library', 'The Swaying Library', 'Furniture design'], ['branding', 'More Projects', 'Identity design']]
+// function Explore() {
+//   const go = (e, id) => { e.preventDefault(); window.__lenis?.scrollTo('#' + id, { offset: -10, duration: 1.8 }) }
+//   return (
+//     <section id="projects" className="explore-sec">
+//       <h2 className="words mega explore" aria-label="Explore my projects">
+//         <span className="w" aria-hidden><span className="wi">Explore&nbsp;my</span></span><br />
+//         <span className="w" aria-hidden><span className="wi"><em>projects</em></span></span>
+//       </h2>
+//       <p className="lead narrow">Five explorations across interiors, furniture and identity. Each one begins with a question about how a space or an object should feel.</p>
+//       <ul className="p-index">
+//         {projectIndex.map(([id, t, c], i) => (
+//           <li key={id}><a href={'#' + id} onClick={(e) => go(e, id)}><span className="pi-n">{i + 1}</span><span className="pi-t">{t}</span><span className="pi-c">{c}</span><span className="pi-a" aria-hidden>→</span></a></li>
+//         ))}
+//       </ul>
+//     </section>
+//   )
+// }
+
+const projectIndex = [
+  ['kitchen', 'Mocha Musings', 'Kitchen', 'kitchen/render'],
+  ['living', 'Living Room', 'Residential', 'living/render'],
+  ['office', 'Paul and Mike', 'Office', 'office/brand'],
+  ['library', 'The Swaying Library', 'Furniture', 'library/hero'],
+  ['branding', 'Personal Branding', 'Identity', 'branding/card'],
+]
 function Explore() {
   const go = (e, id) => { e.preventDefault(); window.__lenis?.scrollTo('#' + id, { offset: -10, duration: 1.8 }) }
   return (
     <section id="projects" className="explore-sec">
-      <h2 className="words mega explore" aria-label="Explore my projects">
-        <span className="w" aria-hidden><span className="wi">Explore&nbsp;my</span></span><br />
-        <span className="w" aria-hidden><span className="wi"><em>projects</em></span></span>
-      </h2>
-      <p className="lead narrow">Five explorations across interiors, furniture and identity. Each one begins with a question about how a space or an object should feel.</p>
-      <ul className="p-index">
-        {projectIndex.map(([id, t, c], i) => (
-          <li key={id}><a href={'#' + id} onClick={(e) => go(e, id)}><span className="pi-n">{i + 1}</span><span className="pi-t">{t}</span><span className="pi-c">{c}</span><span className="pi-a" aria-hidden>→</span></a></li>
+      <div className="ex-head">
+        <h2 className="words ex-title" aria-label="Explore my projects">
+          <span className="w" aria-hidden><span className="wi">Explore&nbsp;my&nbsp;<em>projects</em></span></span>
+        </h2>
+        <span className="ex-rule" aria-hidden />
+      </div>
+      <ul className="pc-row">
+        {projectIndex.map(([id, t, c, img], i) => (
+          <li key={id}>
+            <a href={'#' + id} onClick={(e) => go(e, id)} className="pc">
+              <span className="pc-n">{String(i + 1).padStart(2, '0')}</span>
+              <span className="pc-img"><img src={A(img)} alt="" loading="lazy" /></span>
+              <span className="pc-t">{t}</span>
+              <span className="pc-c">({c})</span>
+            </a>
+          </li>
         ))}
       </ul>
     </section>
@@ -283,33 +316,85 @@ function Office() {
 
 /* ---------------- Library ---------------- */
 const steps = [['6 mm plywood', 'Lightweight yet sturdy core material.'], ['Mortise and tenon', 'Components slot together for strength and refined craft.'], ['SH glue', 'A stronger, more durable bond.'], ['Sanding', 'Thorough sanding before finishing.'], ['Three coats of primer', 'A stable base for the colour.'], ['Three layers of spray paint', 'Protection and a smooth finish.']]
+// function Library() {
+//   return (
+//     <section id="library" className="library">
+//       <div className="l-top">
+//         <Words as="h2" className="mega" text="The Swaying Library" />
+//         <p className="project-cat">Furniture design, furniture and ergonomics studio</p>
+//       </div>
+//       <div className="l-hero">
+//         <Img src="library/hero" alt="The Swaying Library in an interior, a man walking past" className="l-main sway" />
+//         <div className="l-copy">
+//           <p className="lead">A rocking bookshelf crafted from plywood using mortise-and-tenon joinery.</p>
+//           <p>The design explores movement in furniture. A gentle rocking feature makes book access more ergonomic and interactive than a static shelf, and the curved form softens the room while holding books and small everyday objects.</p>
+//         </div>
+//       </div>
+//       <div className="l-proto">
+//         <Img src="library/prototype" alt="Final prototype photographed on grass, painted blue" className="p" />
+//         <Img src="library/ortho" alt="Orthographic views: front 650, side 550, top 260" className="p ortho" />
+//       </div>
+//       <div className="l-make">
+//         <Words as="h3" className="h3" text="How it was made" />
+//         <ol className="steps">{steps.map(([t, d]) => <li key={t}><h4>{t}</h4><p>{d}</p></li>)}</ol>
+//         <div className="l-strip">
+//           <Img src="library/mockups" alt="1:5 scale white mock-ups" className="strip" />
+//           <Img src="library/joinery" alt="Joinery details" className="strip" />
+//           <Img src="library/process" alt="Process documentation in the workshop" className="strip wide" />
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }
+
+
 function Library() {
   return (
-    <section id="library" className="library">
-      <div className="l-top">
-        <Words as="h2" className="mega" text="The Swaying Library" />
-        <p className="project-cat">Furniture design, furniture and ergonomics studio</p>
+    <section id="library" className="library lib-poster">
+      <div className="lp-head">
+        <p className="lp-kicker">Furniture and ergonomics studio</p>
+        <Words as="h2" className="lp-title" text="The Swaying Library" />
+        <p className="lp-tag">a bookshelf that rocks</p>
       </div>
-      <div className="l-hero">
-        <Img src="library/hero" alt="The Swaying Library in an interior, a man walking past" className="l-main sway" />
-        <div className="l-copy">
-          <p className="lead">A rocking bookshelf crafted from plywood using mortise-and-tenon joinery.</p>
-          <p>The design explores movement in furniture. A gentle rocking feature makes book access more ergonomic and interactive than a static shelf, and the curved form softens the room while holding books and small everyday objects.</p>
+
+      <div className="lp-hero l-hero">
+        <div className="lp-arch" aria-hidden />
+        <Img src="library/hero" alt="The Swaying Library in an interior, a man walking past" className="l-main lp-photo" />
+        <Img src="library/prototype" alt="Final prototype photographed on grass, painted blue" className="lp-proto lp-round" />
+      </div>
+
+      <div className="lp-body">
+        <div className="lp-text">
+          <h4>Concept</h4>
+          <p>A rocking bookshelf crafted from plywood using mortise-and-tenon joinery for strength, durability and refined craftsmanship. A gentle rocking feature makes book access more ergonomic and interactive than a static shelf.</p>
+          <h4>Form and use</h4>
+          <p>Designed to hold books as well as small everyday objects, its curved, dynamic form softens interior spaces visually and reinterprets everyday storage in a playful yet purposeful way.</p>
+          <h4>Making</h4>
+          <p>Built from 6 mm plywood, joined with mortise and tenon and SH glue. After thorough sanding, three coats of primer and three layers of spray paint give protection and a smooth finish.</p>
+        </div>
+        <div className="lp-side">
+          <Img src="library/joinery" alt="Joinery details" className="lp-round" />
+          <Img src="library/process" alt="Process documentation in the workshop" className="lp-round" />
         </div>
       </div>
-      <div className="l-proto">
-        <Img src="library/prototype" alt="Final prototype photographed on grass, painted blue" className="p" />
-        <Img src="library/ortho" alt="Orthographic views: front 650, side 550, top 260" className="p ortho" />
-      </div>
-      <div className="l-make">
-        <Words as="h3" className="h3" text="How it was made" />
-        <ol className="steps">{steps.map(([t, d]) => <li key={t}><h4>{t}</h4><p>{d}</p></li>)}</ol>
-        <div className="l-strip">
-          <Img src="library/mockups" alt="1:5 scale white mock-ups" className="strip" />
-          <Img src="library/joinery" alt="Joinery details" className="strip" />
-          <Img src="library/process" alt="Process documentation in the workshop" className="strip wide" />
+
+      <div className="lp-draw">
+        <Img src="library/ortho" alt="Orthographic views: front 650, side 550, top 260" className="lp-ortho" />
+        <div className="lp-spec">
+          <h4>Orthographic views</h4>
+          <ul>
+            <li><span>Front view</span><b>650 × 450 mm</b></li>
+            <li><span>Side view</span><b>550 × 450 mm</b></li>
+            <li><span>Top view</span><b>260 mm</b></li>
+          </ul>
+          <h4>Scale 1:5 mock-ups</h4>
+          <Img src="library/mockups" alt="1:5 scale white mock-ups" className="lp-round" />
         </div>
       </div>
+
+      <ol className="lp-steps">
+        {steps.map(([t, d], i) => <li key={t}><b>{i + 1}</b><h5>{t}</h5><p>{d}</p></li>)}
+      </ol>
     </section>
   )
 }
@@ -407,6 +492,7 @@ export default function App() {
       gsap.from('.hero .arch', { clipPath: 'inset(100% 0 0 0)', duration: 1.5, ease: 'power4.inOut', delay: 0.1 })
       gsap.from('.hero-s', { opacity: 0, scale: 0.9, duration: 1.1, delay: 0.8, stagger: 0.15, ease: 'power3.out' })
       if (rm) return
+      gsap.from('.pc', { y: 70, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '.pc-row', start: 'top 85%' } })
       gsap.utils.toArray('[data-speed]').forEach((el) => gsap.to(el, { yPercent: parseFloat(el.dataset.speed) * 100, ease: 'none', scrollTrigger: { trigger: el, scrub: true, start: 'top bottom', end: 'bottom top' } }))
       gsap.utils.toArray('.words:not(.display) .wi').forEach((el) => gsap.from(el, { yPercent: 115, duration: 1, ease: 'power4.out', scrollTrigger: { trigger: el, start: 'top 92%' } }))
       gsap.utils.toArray('.mask').forEach((el) => {
